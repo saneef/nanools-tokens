@@ -1,61 +1,70 @@
 <script>
 	import FiftyFifty from '$lib/components/FiftyFifty.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
+	import PageFooter from '$lib/components/PageFooter.svelte';
+	import Frame from '$lib/components/Frame.svelte';
 	import Editor from '$lib/components/Editor.svelte';
-	import { createJsonTokenStore, createCssStore } from '$lib/store';
+	import { createJsonStore, createCssStore } from '$lib/store';
 	import { writable } from 'svelte/store';
-	const sampleJson = `{
-  "color": {
-    "gray": {
-      "100": "#f1f5f9",
-      "800": "#1e293b"
-    },
-    "primary": {
-      "100": "#dcfce7",
-      "800": "#166534"
-    }
-  }
-}`;
+	import defaultTokens from '$lib/defaultTokens.json';
+	import defaultOptions from '$lib/defaultOptions.json';
 
-	const input = createJsonTokenStore(sampleJson);
-	const output = createCssStore(input);
+	const input = createJsonStore(JSON.stringify(defaultTokens, null, 2));
+	const options = createJsonStore(JSON.stringify(defaultOptions, null, 2));
+	const output = createCssStore(input, options);
 </script>
 
 <div class="layout">
-	<PageHeader />
-	<FiftyFifty>
-		<FiftyFifty slot="first" direction="vertical">
-			<div slot="first" class="layout-100">
-				<h2>Design Tokens</h2>
-				<Editor bind:value={$input.jsonString} lang="json"></Editor>
-			</div>
-			<div slot="second" class="layout-100">
-				<h2>Options</h2>
-				<Editor value={''} lang="json"></Editor>
-			</div>
-		</FiftyFifty>
-		<div slot="second" class="layout-100">
-			<h2>Output</h2>
-			<Editor value={$output} lang="css"></Editor>
-		</div>
-	</FiftyFifty>
+	<div class="layout__header">
+		<PageHeader />
+	</div>
+	<div class="layout__input">
+		<Frame title="Design tokens" lang="json" message={$input.error}>
+			<Editor bind:value={$input.jsonString} lang="json"></Editor>
+		</Frame>
+	</div>
+	<div class="layout__options">
+		<Frame title="Options" lang="json" message={$options.error}>
+			<Editor bind:value={$options.jsonString} lang="json"></Editor>
+		</Frame>
+	</div>
+	<div class="layout__output">
+		<Frame title="Output" lang="css">
+			<Editor value={$output} lang="css" editable={false}></Editor>
+		</Frame>
+	</div>
+	<div class="layout__footer">
+		<PageFooter />
+	</div>
 </div>
 
 <style>
-	h2 {
-		margin-block-start: 0;
-		padding: 0.25rem;
-	}
 	.layout {
+		padding: var(--space-s);
 		display: grid;
-		grid-template-rows: max-content 1fr;
-		height: 100vh;
-		height: 100dvh;
+		grid-template-rows: max-content repeat(3, 33vh) max-content;
+		gap: var(--space-s);
 	}
 
-	.layout-100 {
-		display: grid;
-		grid-template-rows: max-content 1fr;
-		height: 100%;
+	@media (min-width: 640px) {
+		.layout {
+			grid-template-rows: max-content repeat(2, 1fr) max-content;
+			grid-template-columns: 1fr 1fr;
+			height: 100vh;
+			height: 100dvh;
+		}
+
+		.layout__header,
+		.layout__footer {
+			grid-column: 1 / -1;
+		}
+
+		.layout__options {
+			grid-row: 3;
+		}
+
+		.layout__output {
+			grid-row: 2/-2;
+		}
 	}
 </style>

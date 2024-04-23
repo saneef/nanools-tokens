@@ -14,6 +14,12 @@ importers:
       '@codemirror/lang-json':
         specifier: ^6.0.1
         version: 6.0.1
+      postcss:
+        specifier: ^8.4.38
+        version: 8.4.38
+      postcss-design-token-utils:
+        specifier: ^1.1.1
+        version: 1.1.1(postcss@8.4.38)
       svelte-codemirror-editor:
         specifier: ^1.3.0
         version: 1.3.0(codemirror@6.0.1(@lezer/common@1.2.1))(svelte@4.2.14)
@@ -872,6 +878,9 @@ packages:
   jsonc-parser@3.2.1:
     resolution: {integrity: sha512-AilxAyFOAcK5wA1+LeaySVBrHsGQvUFCDWXKpZjzaL0PqW+xfBOttn8GNtWKFWqneyMZj41MWF9Kl6iPWLwgOA==}
 
+  just-kebab-case@4.2.0:
+    resolution: {integrity: sha512-p2BdO7o4BI+pMun3J+dhaOfYan5JsZrw9wjshRjkWY9+p+u+kKSMhNWYnot2yHDR9CSahZ9iT3dcqJ+V72qHMw==}
+
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
@@ -1048,6 +1057,11 @@ packages:
     resolution: {integrity: sha512-V7SoH0ai2kNt1Md9E3Gwas5B9m8KR2GVvwZnAI6Pg0m3sh7UvgiYhRrhsziCmqMJNouPckiOhk8T+9bSAK0VIA==}
     engines: {node: '>=16'}
     hasBin: true
+
+  postcss-design-token-utils@1.1.1:
+    resolution: {integrity: sha512-Y19cHdfey678TE4tJnyCiNg3NTaBuOXo81VBh7x1sz6xL0/LKXqf3bX9ZHkIWwpkBsF9UApQKX6H8oonW2lq8A==}
+    peerDependencies:
+      postcss: ^8.0.0
 
   postcss-load-config@3.1.4:
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
@@ -2243,6 +2257,8 @@ snapshots:
 
   jsonc-parser@3.2.1: {}
 
+  just-kebab-case@4.2.0: {}
+
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
@@ -2399,6 +2415,11 @@ snapshots:
       playwright-core: 1.43.1
     optionalDependencies:
       fsevents: 2.3.2
+
+  postcss-design-token-utils@1.1.1(postcss@8.4.38):
+    dependencies:
+      just-kebab-case: 4.2.0
+      postcss: 8.4.38
 
   postcss-load-config@3.1.4(postcss@8.4.38):
     dependencies:

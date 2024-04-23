@@ -1,3 +1,7 @@
 html {
 	font-family: var(--font-family-base);
+	font-size: var(--step-0);
+	line-height: 1.5;
+
+	background-color: var(--color-light);
 }

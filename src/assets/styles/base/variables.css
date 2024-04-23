@@ -1,6 +1,52 @@
 :root {
+	--color-dark: hsl(0 0% 5%);
+	--color-dark-glare: hsl(0 0% 70%);
+	--color-light-glare: hsl(0 0% 98%);
+	--color-light: hsl(0 0% 95%);
+	--color-light-shade: hsl(0 0% 85%);
+
+	--border-color: var(--color-light-shade);
+	--border-width-l: var(--space-3xs-2xs);
+	--border-width-m: 3px;
+	--border-width-s: 1px;
+
 	--font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial,
 		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 	--font-family-mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono,
 		monospace;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.333,1240,20,1.414,3,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+	--step--2: clamp(0.6252rem, 0.6359rem + -0.0138vi, 0.6331rem);
+	--step--1: clamp(0.844rem, 0.83rem + 0.0697vi, 0.884rem);
+	--step-0: clamp(1.125rem, 1.0815rem + 0.2174vi, 1.25rem);
+	--step-1: clamp(1.4996rem, 1.4065rem + 0.4659vi, 1.7675rem);
+	--step-2: clamp(1.999rem, 1.825rem + 0.87vi, 2.4992rem);
+	--step-3: clamp(2.6647rem, 2.3623rem + 1.5118vi, 3.5339rem);
+}
+
+/* @link https://utopia.fyi/space/calculator?c=320,18,1.333,1240,20,1.414,3,1,&s=0.75|0.5|0.25,1.5|2|3,&g=s,l,xl,12 */
+
+:root {
+	--space-3xs: clamp(5px, 5px + 0vi, 5px);
+	--space-2xs: clamp(9px, 8.6522px + 0.1087vi, 10px);
+	--space-xs: clamp(14px, 13.6522px + 0.1087vi, 15px);
+	--space-s: clamp(18px, 17.3043px + 0.2174vi, 20px);
+	--space-m: clamp(27px, 25.9565px + 0.3261vi, 30px);
+	--space-l: clamp(36px, 34.6087px + 0.4348vi, 40px);
+	--space-xl: clamp(54px, 51.913px + 0.6522vi, 60px);
+
+	/* One-up pairs */
+	--space-3xs-2xs: clamp(5px, 3.2609px + 0.5435vi, 10px);
+	--space-2xs-xs: clamp(9px, 6.913px + 0.6522vi, 15px);
+	--space-xs-s: clamp(14px, 11.913px + 0.6522vi, 20px);
+	--space-s-m: clamp(18px, 13.8261px + 1.3043vi, 30px);
+	--space-m-l: clamp(27px, 22.4783px + 1.413vi, 40px);
+	--space-l-xl: clamp(36px, 27.6522px + 2.6087vi, 60px);
+}
+
+:root {
+	--flow-space: var(--space-s);
 }

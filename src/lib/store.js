@@ -1,6 +1,6 @@
 import { json } from '@sveltejs/kit';
 import { derived, get, writable } from 'svelte/store';
-import { jsonToCssProps, prettifyCss } from './utils/css';
+import { jsonToCssProps } from './utils/css';
 import { flatten } from './utils/object';
 
 /**
@@ -15,7 +15,7 @@ import { flatten } from './utils/object';
  * @param      {string}  [initialString]  The Initial JSON string
  * @return     {import('svelte/store').Writable<JsonTokens>}
  */
-export function createJsonTokenStore(initialString = '{}') {
+export function createJsonStore(initialString = '{}') {
 	const initParsedJson = parseJson(initialString);
 
 	/** @type JsonTokens */
@@ -44,15 +44,15 @@ export function createJsonTokenStore(initialString = '{}') {
 /**
  * Creates a CSS store.
  *
- * @param      {ReturnType<typeof createJsonTokenStore>}  codeStore  The code store
+ * @param      {ReturnType<typeof createJsonStore>}  tokensStore
+ * @param      {ReturnType<typeof createJsonStore>}  optionsStore
  * @return     {import('svelte/store').Readable<string>}
  */
-export function createCssStore(codeStore) {
+export function createCssStore(tokensStore, optionsStore) {
 	// @ts-ignore
-	return derived(codeStore, async ($codeStore, set) => {
-		let css = jsonToCssProps($codeStore.json);
-		css = await prettifyCss(css);
-		set(css);
+	return derived([tokensStore, optionsStore], async ([$tokensStore, $optionsStore], set) => {
+		const res = await jsonToCssProps($tokensStore.json, $optionsStore.json);
+		set(res.css);
 	});
 }
 
@@ -72,8 +72,8 @@ function parseJson(string) {
 	let valid = true;
 	let error;
 	try {
-		const obj = JSON.parse(string);
-		json = flatten(obj, { separator: '-' });
+		json = JSON.parse(string);
+		// json = flatten(obj, { separator: '-' });
 	} catch (/** @type {any} */ e) {
 		valid = false;
 		json = {};

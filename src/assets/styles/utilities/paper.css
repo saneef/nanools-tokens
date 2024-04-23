@@ -1,0 +1,5 @@
+.paper {
+	border-radius: 0.5rem;
+	background-color: var(--color-light-glare);
+	overflow: hidden;
+}

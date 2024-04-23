@@ -1,0 +1,13 @@
+{
+	"color": {
+		"dark": "#030303",
+		"light": "#ffffff",
+		"primary": "#02394A"
+	},
+	"space": {
+		"xs": "0.75rem",
+		"s": "1rem",
+		"m": "1.5rem",
+		"l": "2rem"
+	}
+}

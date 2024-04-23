@@ -1,0 +1,30 @@
+/*
+FLOW COMPOSITION
+Like the Every Layout stack: https://every-layout.dev/layouts/stack/
+Info about this implementation: https://piccalil.li/quick-tip/flow-utility/
+*/
+.flow > * + * {
+	margin-top: var(--flow-space, 1em);
+}
+
+.flow-space-3xs {
+	--flow-space: var(--space-3xs);
+}
+.flow-space-2xs {
+	--flow-space: var(--space-2xs);
+}
+.flow-space-xs {
+	--flow-space: var(--space-xs);
+}
+.flow-space-s {
+	--flow-space: var(--space-s);
+}
+.flow-space-m {
+	--flow-space: var(--space-m);
+}
+.flow-space-l {
+	--flow-space: var(--space-l);
+}
+.flow-space-xl {
+	--flow-space: var(--space-xl);
+}

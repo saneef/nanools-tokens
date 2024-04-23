@@ -1,6 +1,13 @@
-@layer reset, base, layout, utility;
+@layer reset, base, block, composition, utility;
 
 @import './reset.css' layer(reset);
 
 @import './base/variables.css' layer(base);
 @import './base/html.css' layer(base);
+
+@import './blocks/pill.css' layer(block);
+
+@import './compositions/flow.css' layer(composition);
+
+@import './utilities/paper.css' layer(utility);
+@import './utilities/text-transform.css' layer(utility);

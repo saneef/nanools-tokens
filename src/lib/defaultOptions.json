@@ -1,0 +1,25 @@
+{
+	"breakpoints": {
+		"sm": "330px",
+		"md": "650px"
+	},
+	"classResponsivePrefixSeparator": "\\:",
+	"utilityClasses": [
+		{
+			"id": "color.gray",
+			"property": "color",
+			"prefix": "text"
+		},
+		{
+			"id": "color.gray",
+			"property": "background-color",
+			"prefix": "bg"
+		},
+		{
+			"id": "space",
+			"property": "margin-block",
+			"prefix": "mt",
+			"responsiveVariants": true
+		}
+	]
+}
