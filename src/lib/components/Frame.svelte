@@ -62,7 +62,7 @@
 	h2 {
 		font-size: var(--step--1);
 		font-weight: medium;
-		color: var(--color-dark);
+		color: var(--color-dark-glare);
 	}
 
 	.message {
