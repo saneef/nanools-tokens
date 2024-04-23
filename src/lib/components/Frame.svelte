@@ -7,7 +7,7 @@
 </script>
 
 <div class="frame paper">
-	<div class="frame__header" class:frame__header--narrow={$$slots.actions}>
+	<div class="frame__header">
 		<div class="frame__header-meta">
 			<h2>{title}</h2>
 			<span class="pill text-upper">{lang}</span>
@@ -48,15 +48,15 @@
 		padding: var(--space-xs);
 	}
 
-	.frame__header--narrow {
-		padding-block: var(--space-3xs);
-		padding-inline-end: var(--space-3xs);
-	}
-
 	.frame__header-meta {
 		display: flex;
 		align-items: center;
 		gap: var(--space-2xs);
+	}
+
+	.frame__header-actions {
+		margin-block: calc(-1 * var(--space-2xs));
+		margin-inline-end: calc(-1 * var(--space-2xs));
 	}
 
 	h2 {
