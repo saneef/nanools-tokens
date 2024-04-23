@@ -7,9 +7,16 @@
 </script>
 
 <div class="frame paper">
-	<div class="frame__header">
-		<h2>{title}</h2>
-		<span class="pill text-upper">{lang}</span>
+	<div class="frame__header" class:frame__header--narrow={$$slots.actions}>
+		<div class="frame__header-meta">
+			<h2>{title}</h2>
+			<span class="pill text-upper">{lang}</span>
+		</div>
+		{#if $$slots.actions}
+			<div class="frame__header-actions">
+				<slot name="actions"></slot>
+			</div>
+		{/if}
 	</div>
 	<div class="frame__content">
 		<slot></slot>
@@ -34,11 +41,22 @@
 
 	.frame__header {
 		display: flex;
-		padding: var(--space-xs);
-		border-bottom: 1px solid var(--color-light-shade);
-		gap: var(--space-xs);
 		align-items: center;
 		justify-content: space-between;
+		border-bottom: 1px solid var(--color-light-shade);
+		gap: var(--space-s);
+		padding: var(--space-xs);
+	}
+
+	.frame__header--narrow {
+		padding-block: var(--space-3xs);
+		padding-inline-end: var(--space-3xs);
+	}
+
+	.frame__header-meta {
+		display: flex;
+		align-items: center;
+		gap: var(--space-2xs);
 	}
 
 	h2 {

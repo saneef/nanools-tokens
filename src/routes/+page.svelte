@@ -1,6 +1,7 @@
 <script>
 	import FiftyFifty from '$lib/components/FiftyFifty.svelte';
 	import PageHeader from '$lib/components/PageHeader.svelte';
+	import CopyToClipboardButton from '$lib/components/CopyToClipboardButton.svelte';
 	import PageFooter from '$lib/components/PageFooter.svelte';
 	import Frame from '$lib/components/Frame.svelte';
 	import Editor from '$lib/components/Editor.svelte';
@@ -31,6 +32,7 @@
 	<div class="layout__output">
 		<Frame title="Output" lang="css">
 			<Editor value={$output} lang="css" editable={false}></Editor>
+			<CopyToClipboardButton slot="actions" text={$output} />
 		</Frame>
 	</div>
 	<div class="layout__footer">
