@@ -2,4 +2,7 @@
 	import '$assets/styles/main.css';
 </script>
 
+<svelte:head>
+	<title>Design Token to CSS · nanools.com</title>
+</svelte:head>
 <slot />
