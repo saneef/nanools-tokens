@@ -1,65 +1,56 @@
 import { json } from '@sveltejs/kit';
-import { derived, writable } from 'svelte/store';
+import { derived, get, writable } from 'svelte/store';
 import { jsonToCssProps, prettifyCss } from './utils/css';
 import { flatten } from './utils/object';
 
 /**
  * @typedef {ParsedJson & {
- * 	jsonString: string
+ *   jsonString: string
  * }} JsonTokens JSON Tokens Store
  */
 
 /**
  * Creates a JSON token store.
  *
- * @param      {string}  jsonString  The json string
+ * @param      {string}  [initialString]  The Initial JSON string
  * @return     {import('svelte/store').Writable<JsonTokens>}
  */
-export function createJsonTokenStore(jsonString) {
-	const parsedJson = parseJson(jsonString);
-	if (!parsedJson.valid) {
-		throw new Error(`createJsonTokenStore: invalid jsonString, ${parsedJson.error}`);
-	}
+export function createJsonTokenStore(initialString = '{}') {
+	const initParsedJson = parseJson(initialString);
 
-	const { json, valid } = parsedJson;
+	/** @type JsonTokens */
+	const value = structuredClone({ ...initParsedJson, jsonString: initialString });
 
-	/** @type {JsonTokens} */
-	const value = { jsonString, valid, json, error: undefined };
-	const { subscribe, set, update } = writable(value);
+	const { update, subscribe } = writable(value);
 
-	/**
-	 * @param      {JsonTokens}  jsonTokens
-	 */
+	/** @param {JsonTokens}  jsonTokens */
 	const parseAndSet = function ({ jsonString }) {
 		const { json, valid, error } = parseJson(jsonString);
-
-		set({ ...value, jsonString, valid, error, json });
+		if (valid) {
+			update((prev) => ({ ...prev, json, valid, error, jsonString }));
+		} else {
+			update((prev) => ({ ...prev, valid, error, jsonString }));
+		}
 	};
 
-	/** @param {(args: JsonTokens) => JsonTokens}  fn  */
-	const parseAndUpdate = (fn) => {
+	/** @param {import('svelte/store').Updater<JsonTokens>} fn */
+	const parseAndUpdate = function (fn) {
 		parseAndSet(fn(value));
 	};
 
-	return {
-		subscribe,
-		set: parseAndSet,
-		update: parseAndUpdate
-	};
+	return { set: parseAndSet, update: parseAndUpdate, subscribe };
 }
 
 /**
  * Creates a CSS store.
  *
  * @param      {ReturnType<typeof createJsonTokenStore>}  codeStore  The code store
+ * @return     {import('svelte/store').Readable<string>}
  */
 export function createCssStore(codeStore) {
+	// @ts-ignore
 	return derived(codeStore, async ($codeStore, set) => {
-		let css = '';
-		if ($codeStore.valid) {
-			css = jsonToCssProps($codeStore.json);
-		}
-
+		let css = jsonToCssProps($codeStore.json);
 		css = await prettifyCss(css);
 		set(css);
 	});
