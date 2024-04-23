@@ -18,6 +18,7 @@
 	footer {
 		display: flex;
 		justify-content: space-between;
+		font-size: var(--step--1);
 	}
 	ul {
 		display: flex;
