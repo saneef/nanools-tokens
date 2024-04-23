@@ -6,6 +6,7 @@
 @import './base/html.css' layer(base);
 
 @import './blocks/pill.css' layer(block);
+@import './blocks/button.css' layer(block);
 
 @import './compositions/flow.css' layer(composition);
 

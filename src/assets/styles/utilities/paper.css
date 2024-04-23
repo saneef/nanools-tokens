@@ -1,5 +1,5 @@
 .paper {
-	border-radius: 0.5rem;
+	border-radius: var(--border-radius-l);
 	background-color: var(--color-light-glare);
 	overflow: hidden;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;

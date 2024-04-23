@@ -4,5 +4,5 @@
 	color: var(--color-dark);
 	line-height: 1.5;
 	padding: 0 var(--space-3xs);
-	border-radius: 0.25rem;
+	border-radius: var(--border-radius-m);
 }

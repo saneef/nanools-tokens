@@ -5,3 +5,32 @@ html {
 
 	background-color: var(--color-light);
 }
+
+/*
+ * Focus styles
+ *
+ * @link https://css-tricks.com/standardizing-focus-styles-with-css-custom-properties/
+ *
+ * Using on :root instead of :is(a, button, input, textarea, summary) inorder
+ * to add outline on non focusable elements like div or span.
+ *
+ */
+:root {
+	--outline-size: max(2px, 0.08em);
+	--outline-style: solid;
+	--outline-color: currentColor;
+}
+
+:is(a, button, input, textarea, summary):focus {
+	outline: var(--outline-size) var(--outline-style) var(--outline-color);
+	outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus-visible {
+	outline: var(--outline-size) var(--outline-style) var(--outline-color);
+	outline-offset: var(--outline-offset, var(--outline-size));
+}
+
+:is(a, button, input, textarea, summary):focus:not(:focus-visible) {
+	outline: none;
+}
