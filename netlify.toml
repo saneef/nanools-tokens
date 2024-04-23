@@ -2,16 +2,3 @@
   command = "pnpm run build"
   functions = "netlify/functions"
   publish = "build"
-
-##
-## REDIRECTS
-##
-# Plausible analytics
-[[redirects]]
-  from = "/js/plausible.js"
-  to = "https://plausible.io/js/script.pageview-props.js"
-  status = 200
-[[redirects]]
-  from = "/api/event"
-  to = "https://plausible.io/api/event"
-  status = 200
