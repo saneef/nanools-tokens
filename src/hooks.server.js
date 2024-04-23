@@ -19,7 +19,7 @@ export const handle = async ({ event, resolve }) => {
 			return html.replace(
 				PLAUSIBLE_TOKEN,
 				`
-<script defer event-subdomain="tokens2css" data-domain="${PLAUSIBLE_DOMAIN ?? ''}"" src="/p.js"></script>`
+<script defer data-domain="${PLAUSIBLE_DOMAIN ?? ''}"" src="/p.js"></script>`
 			);
 		}
 	});
