@@ -51,8 +51,8 @@ export function createJsonStore(initialString = '{}') {
 export function createCssStore(tokensStore, optionsStore) {
 	// @ts-ignore
 	return derived([tokensStore, optionsStore], async ([$tokensStore, $optionsStore], set) => {
-		const res = await jsonToCssProps($tokensStore.json, $optionsStore.json);
-		set(res.css);
+		const css = await jsonToCssProps($tokensStore.json, $optionsStore.json);
+		set(css);
 	});
 }
 

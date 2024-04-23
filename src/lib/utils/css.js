@@ -19,7 +19,7 @@ const baseCss = `:root {
  * @param {Object=}  options
  */
 export async function jsonToCssProps(json, options) {
-	return postcss([
+	const res = postcss([
 		postcssPluginDesignTokenUtils(
 			json,
 			//@ts-ignore
@@ -29,4 +29,5 @@ export async function jsonToCssProps(json, options) {
 		from: 'a.css',
 		to: 'b.css'
 	});
+	return res.css?.replace('\n@design-token-utils (utility-classes);', '');
 }
