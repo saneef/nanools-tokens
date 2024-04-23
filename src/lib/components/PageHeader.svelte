@@ -7,7 +7,7 @@
 		<div class="flow flow-space-2xs">
 			<p class="title">
 				<a href="https://nanools.com">nanools</a>
-				∕
+				<span class="slash">∕</span>
 				<a href="/">Design Token to CSS</a>
 			</p>
 			<p class="intro">
@@ -40,5 +40,8 @@
 
 	.link {
 		font-weight: bold;
+	}
+	.slash {
+		padding-inline: var(--space-3xs);
 	}
 </style>
