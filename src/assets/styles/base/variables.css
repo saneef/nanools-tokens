@@ -4,6 +4,7 @@
 	--color-light-glare: hsl(0 0% 98%);
 	--color-light: hsl(0 0% 95%);
 	--color-light-shade: hsl(0 0% 85%);
+	--color-danger: #c94543;
 
 	--border-color: var(--color-light-shade);
 	--border-width-l: var(--space-3xs-2xs);

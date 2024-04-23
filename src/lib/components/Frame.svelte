@@ -49,7 +49,8 @@
 
 	.message {
 		padding: var(--space-3xs) var(--space-2xs);
-		background-color: var(--color-dark-glare);
+		background-color: var(--color-danger);
+		color: var(--color-light);
 		font-size: var(--step--1);
 	}
 </style>
