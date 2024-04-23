@@ -11,3 +11,5 @@
 
 @import './utilities/paper.css' layer(utility);
 @import './utilities/text-transform.css' layer(utility);
+
+@import './vendor/codemirror.css';
