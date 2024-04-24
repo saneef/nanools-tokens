@@ -15,6 +15,10 @@
 	const output = createCssStore(input, options);
 </script>
 
+<svelte:head>
+	<meta name="description" content="Convert JSON design tokens into CSS in the browser." />
+</svelte:head>
+
 <div class="layout">
 	<div class="layout__header">
 		<PageHeader />
