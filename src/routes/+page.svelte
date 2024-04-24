@@ -44,11 +44,11 @@
 	.layout {
 		padding: var(--space-s);
 		display: grid;
-		grid-template-rows: max-content repeat(3, 33vh) max-content;
+		grid-template-rows: max-content repeat(3, 50vmax) max-content;
 		gap: var(--space-s);
 	}
 
-	@media (min-width: 640px) {
+	@media (min-width: 720px) {
 		.layout {
 			grid-template-rows: max-content repeat(2, 1fr) max-content;
 			grid-template-columns: 1fr 1fr;
