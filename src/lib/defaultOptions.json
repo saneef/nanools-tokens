@@ -6,12 +6,12 @@
 	"classResponsivePrefixSeparator": "\\:",
 	"utilityClasses": [
 		{
-			"id": "color.gray",
+			"id": "color",
 			"property": "color",
 			"prefix": "text"
 		},
 		{
-			"id": "color.gray",
+			"id": "color",
 			"property": "background-color",
 			"prefix": "bg"
 		},
