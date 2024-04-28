@@ -3,6 +3,6 @@
 </script>
 
 <svelte:head>
-	<title>Design Token to CSS · nanools.com</title>
+	<title>Design Tokens to CSS · nanools.com</title>
 </svelte:head>
 <slot />

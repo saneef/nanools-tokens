@@ -8,10 +8,10 @@
 			<p class="title">
 				<a href="https://nanools.com">nanools</a>
 				<span class="slash">∕</span>
-				<a href="/">Design Token to CSS</a>
+				<a href="/">Design Tokens to CSS</a>
 			</p>
 			<p class="intro">
-				Convert JSON design token to CSS. Uses
+				Convert JSON design tokens to CSS. Uses
 				<a href={pluginUrl}>postcss-design-token-utils plugin</a>.
 			</p>
 		</div>
