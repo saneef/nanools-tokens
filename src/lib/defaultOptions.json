@@ -3,7 +3,7 @@
 		"sm": "330px",
 		"md": "650px"
 	},
-	"classResponsivePrefixSeparator": "\\:",
+	"responsivePrefixClassSeparator": "\\:",
 	"utilityClasses": [
 		{
 			"id": "color",
