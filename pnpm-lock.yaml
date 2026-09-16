@@ -21,8 +21,8 @@ importers:
         specifier: ^8.4.38
         version: 8.4.38
       postcss-design-token-utils:
-        specifier: ^3.0.3
-        version: 3.0.3(postcss@8.4.38)
+        specifier: ^3.0.4
+        version: 3.0.4(postcss@8.4.38)
       svelte-codemirror-editor:
         specifier: ^1.3.0
         version: 1.3.0(codemirror@6.0.1(@lezer/common@1.2.1))(svelte@4.2.15)
@@ -1088,8 +1088,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  postcss-design-token-utils@3.0.3:
-    resolution: {integrity: sha512-Q9Kyc8MuodII1tw5GFJ7zpV6knWnjKX+fmuIlkRKZ9x8GrzZaipba7faPImAsmlzJPta47IMBc9MXHiGxX5npw==}
+  postcss-design-token-utils@3.0.4:
+    resolution: {integrity: sha512-bs/e35gx8k48Ja49aumr9OjGCgPKzSyhyxpntjXFF81e8BIpr+jls8Mw+sk4IzDyes+eXMCCUbaHPQ18oibX5g==}
     peerDependencies:
       postcss: ^8.0.0
 
@@ -2450,7 +2450,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.2
 
-  postcss-design-token-utils@3.0.3(postcss@8.4.38):
+  postcss-design-token-utils@3.0.4(postcss@8.4.38):
     dependencies:
       just-kebab-case: 4.2.0
       postcss: 8.4.38

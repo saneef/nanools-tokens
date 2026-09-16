@@ -3,4 +3,4 @@ allowBuilds:
   esbuild: true
   svelte-preprocess: true
 minimumReleaseAgeExclude:
-  - postcss-design-token-utils@3.0.3
+  - postcss-design-token-utils@3.0.3 || 3.0.4
